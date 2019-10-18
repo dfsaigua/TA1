@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>formulario_registro.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+.s3 { color: rgb(0,128,0); font-weight: bold; }
+.s4 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+formulario_registro.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.telematica.aplication1; 
+</span><span class="s0">import </span><span class="s1">android.app.NotificationManager; 
+</span><span class="s0">import </span><span class="s1">android.app.PendingIntent; 
+</span><span class="s0">import </span><span class="s1">android.content.Context; 
+</span><span class="s0">import </span><span class="s1">android.content.Intent; 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.support.v4.app.NotificationCompat; 
+</span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+ 
+</span><span class="s0">public class </span><span class="s1">formulario_registro </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_formulario_registro); 
+    } 
+    </span><span class="s2">//insertarpaciente</span><span class="s1"> 
+    </span><span class="s0">public void </span><span class="s1">insertarpaciente(View v) { 
+        addNotification(); 
+    } 
+    </span><span class="s0">private void </span><span class="s1">addNotification() { 
+        NotificationCompat.Builder builder = 
+                </span><span class="s0">new </span><span class="s1">NotificationCompat.Builder(</span><span class="s0">this</span><span class="s1">) 
+                        .setSmallIcon(R.drawable.aa) 
+                        .setContentTitle(</span><span class="s3">&quot;Se ha registrado con exito&quot;</span><span class="s1">) 
+                        .setContentText(</span><span class="s3">&quot;Revise su correo electronico en los proximos 2 dias&quot;</span><span class="s1">) 
+                        .setAutoCancel(</span><span class="s0">true</span><span class="s1">) 
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT); 
+        Intent notificationIntent = </span><span class="s0">new </span><span class="s1">Intent(</span><span class="s0">this</span><span class="s1">, formulario_registro.</span><span class="s0">class</span><span class="s1">); 
+        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+        notificationIntent.putExtra(</span><span class="s3">&quot;message&quot;</span><span class="s1">, </span><span class="s3">&quot;This is a notification message&quot;</span><span class="s1">); 
+        PendingIntent pendingIntent = PendingIntent.getActivity(</span><span class="s0">this</span><span class="s1">, </span><span class="s4">0</span><span class="s1">, notificationIntent, 
+                PendingIntent.FLAG_UPDATE_CURRENT); 
+        builder.setContentIntent(pendingIntent); 
+        NotificationManager manager = (NotificationManager) 
+                getSystemService(Context.NOTIFICATION_SERVICE); 
+        manager.notify(</span><span class="s4">0</span><span class="s1">, builder.build()); 
+    } 
+}</span></pre>
+</body>
+</html>
