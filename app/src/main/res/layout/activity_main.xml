@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:hint="Clave"
+        android:inputType="textPassword"
         android:layout_marginTop="15dip"
         android:layout_marginBottom="30dip" />
     <Button android:id="@+id/btnLogin"
